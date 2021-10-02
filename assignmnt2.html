@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로또</title>
+</head>
+<body>
+  <script>
+    'use strict';
+    var lotto =[]; //６つの数字が並べられるために配列処理する。値は入れない
+
+    //６回処理‐反復文
+    for(var i=0;i<6;i++){
+     //新しく追加される数字；1~45の間の数字がランダムに処理
+    //random(); 0~1の間のランダム数　
+      var num =Math.floor(Math.random()*44)+1;
+
+      for(var j in lotto){
+        if(num==lotto[j]){
+          num=Math.floor(Math.random()*44)+1;
+        }
+      }
+      lotto.push(num);
+    }
+
+    lotto.sort(function(a,b){
+      return a - b;
+    });
+    document.write('로또 번호:' + lotto);
+  </script>
+</body>
+</html>
